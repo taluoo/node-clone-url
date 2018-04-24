@@ -1,0 +1,19 @@
+{
+  "name": "@taluoo/node-clone-url",
+  "version": "1.0.0",
+  "description": "clone url content to current dir",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taluoo/node-clone-url.git"
+  },
+  "author": "taluoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taluoo/node-clone-url/issues"
+  },
+  "homepage": "https://github.com/taluoo/node-clone-url#readme"
+}
