@@ -27,6 +27,7 @@
   "dependencies": {
     "@taluoo/download": "^1.0.3",
     "@taluoo/md5": "^1.0.1",
+    "@taluoo/node-line-reader": "^1.1.1",
     "@taluoo/tmpfile": "^1.0.1",
     "mkdirp": "^0.5.1"
   }

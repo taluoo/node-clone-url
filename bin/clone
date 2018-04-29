@@ -2,6 +2,8 @@
 const readline = require('readline');
 const fs = require('fs');
 
+const createLineReader = require('@taluoo/node-line-reader');
+
 const {clone} = require('../index');
 
 // 使用方法：
@@ -12,20 +14,17 @@ let argv = process.argv;
 
 if (argv[2] === '--file') {
     if (argv[3]) {
-        try {
-            let inputStream = fs.createReadStream(argv[3]);
-            inputStream.on('error', err => {
-                console.log(`读取文件 ${argv[3]} 失败，请检查文件路径是否正确`);
-                process.exit();
-            });
-            let lineReader = readline.createInterface({input: inputStream});
-            lineReader.on('line', (url) => {
-                console.log('clone url: ' + url);
-                clone(url);
-            })
-        } catch (e) {
-            console.log(`读取 ${argv[3]} 失败，请检查路径是否正确`)
-        }
+        let lineReader = createLineReader(argv[3]);
+        lineReader.on('line', url => {
+            console.log('clone url: ' + url);
+            clone(url);
+        });
+        lineReader.on('end', () => {
+            console.log(`${argv[3]} 读取完成`)
+        });
+        lineReader.on('error', err => {
+            console.log(err);
+        })
     } else {
         console.log('请指定输入文件路径');
         process.exit();
