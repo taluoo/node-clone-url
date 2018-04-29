@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha --reporter spec"
   },
+  "bin": {
+    "clone": "bin/clone"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/taluoo/node-clone-url.git"
